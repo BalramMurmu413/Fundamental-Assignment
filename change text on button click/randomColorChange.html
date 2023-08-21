@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Change</title>
+
+    <!-- css -->
+    <style>
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+        body{
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+        }
+#display{
+    color: aliceblue;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+        #main{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #221f1f;
+            color: aliceblue;
+            border-radius: 6px;
+            box-shadow:  0 0 5px 5px grey;
+        }
+        h1{
+            padding: 10px;
+        }
+button{
+    margin: 10px;
+padding: 4px 8px;
+font-size: 18px;
+font-weight: 700;
+box-shadow:  0 0 1px 1px grey;
+color: black;
+border-radius: 6px;
+border: none;
+cursor: pointer;
+}
+
+    </style>
+
+</head>
+<body>
+    <div id="main">
+        <h1 id="heading">Click the button to Change the color</h1>
+        <p id="display">#fff</p>
+        <button id="btn">Click Me</button>
+    </div>
+
+    
+</body>
+<!-- <script src="/colorChange.js"></script> -->
+<script>
+    let changer = document.getElementById('btn')
+let display = document.getElementById('display')
+let heading = document.getElementById('heading')
+
+
+const randomColor = () =>{
+    let hex1 = "0123456789abcdef";
+    let hex2 = "#";
+
+    for(let i = 0; i < 6 ;i++){
+     hex2 = hex2 + hex1[Math.floor(Math.random()*16)];
+    }
+    return hex2
+
+}
+
+function colorChanger(){
+    display.innerHTML = randomColor()
+    heading.style.color = randomColor() 
+}
+changer.addEventListener('click', colorChanger)
+</script>
+</html>
